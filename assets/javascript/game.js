@@ -10,6 +10,7 @@ var guesses = 12;
 var remaining = computerChoice.length;
 var wordArray = Array.from(computerChoice);
 var lettersGuessed = [];
+var alphabet = ["a", "b", "c", "d","e", "f", "g", "h", "i", "j", "k", "l", "m", "m","n","o", "p", "q","r","s","t","u","v","w","x","y","z"]
 
 
 // Computer creates blank spaces based on the word it chose
@@ -30,9 +31,9 @@ document.onkeypress = function(game) {
 
 var userGuess = game.key;
 
-// Function that replaces array items from choiceArray to blankSpaces
 
-// if (userGuess.length > 0) {
+
+
 
     for (var i = 0; i < computerChoice.length; i++) {
 
@@ -41,15 +42,19 @@ var userGuess = game.key;
             remaining--;
             answers[i] = userGuess;
             document.getElementById("currentWord").textContent = answers.join(" ");
+            console.log(remaining);
         }
         }
-        if (computerChoice[i] !== userGuess) {
-            --guesses;
+    
+        if (computerChoice.valueOf() != userGuess.valueOf()) {
+            guesses--;
             document.getElementById("guesses").textContent = guesses;
             lettersGuessed.push(userGuess);
             document.getElementById("lettersGuess").textContent = lettersGuessed.join(" "); 
         }
     };
+
+    
     
         
        

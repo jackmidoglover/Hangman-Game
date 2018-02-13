@@ -33,9 +33,9 @@ var userGuess = game.key;
 
 
 
-
+    //cycles through the index of the arrays computerChoice & lettersGuessed 
     for (var i = 0; i < computerChoice.length; i++) {
-
+        //assigns userGuess to answers(_'s) and subtracts from remaining answers 
         if (computerChoice[i] === userGuess) 
         {
             remaining--;
@@ -45,21 +45,32 @@ var userGuess = game.key;
             console.log(guesses);
         }
 
-        if (computerChoice.includes(userGuess) !== true) {
+        // if userGuess is not in computerChoice, this subtracts from guesses
+        // remaining and adds to letters guessed, but does not repeatedly do so
+        // upon the key event
+        if ((computerChoice.includes(userGuess) !== true) && (lettersGuessed.includes(userGuess) !== true)) {
             guesses--;
             document.getElementById("guesses").textContent = guesses;
             lettersGuessed.push(userGuess);
             document.getElementById("lettersGuess").textContent = lettersGuessed.join(" "); 
             break;
         }
-        else {
+        
+       
             
         }
     }
 
-
+// losing condition
+var failMessage = 
+    "<p>Sorry! You have run out of guesses. </p>" + 
+    "<p>The word was " + computerChoice + "</p>" +
+    "<p> Refresh to try again! :D </p>"
+if (guesses == 0) {
+    document.getElementById("currentWord").innerHTML = failMessage;
+}
         
        
     
    
-}
+

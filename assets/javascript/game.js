@@ -34,7 +34,6 @@ var userGuess = game.key;
 
 
 
-
     for (var i = 0; i < computerChoice.length; i++) {
 
         if (computerChoice[i] === userGuess) 
@@ -43,21 +42,24 @@ var userGuess = game.key;
             answers[i] = userGuess;
             document.getElementById("currentWord").textContent = answers.join(" ");
             console.log(remaining);
+            console.log(guesses);
         }
-        }
-    
-        if (computerChoice.valueOf() != userGuess.valueOf()) {
+
+        if (computerChoice.includes(userGuess) !== true) {
             guesses--;
             document.getElementById("guesses").textContent = guesses;
             lettersGuessed.push(userGuess);
             document.getElementById("lettersGuess").textContent = lettersGuessed.join(" "); 
+            break;
         }
-    };
+        else {
+            
+        }
+    }
 
-    
-    
+
         
        
     
    
-
+}

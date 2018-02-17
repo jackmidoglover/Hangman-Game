@@ -1,0 +1,60 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Eagle Lake', cursive;
+    font-size: 16px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: -20px;
+}
+h1 {
+    font-family: XXIIBlackmetalWarrior;
+    font-size: 180px;
+    font-weight: normal;
+    font-style: normal;
+    color: white;
+}
+h2 {
+    font-family: 'Metal Mania', cursive;
+    font-size: 40px;
+    color:#6D0B01;
+    line-height: 45px;
+    text-shadow: 2px 2px #B70B01, 6px 2px #000000;
+    position: relative;
+    top: -93px;
+    left: 200px;
+    transform: rotate(-25deg);
+}
+h3 {
+    font-family: 'Metal Mania', cursive;
+    font-size: 30px;
+    padding-top: -5px;
+}
+h4 {
+    font-size: 18px;
+    font-weight: 1000;
+    padding: 5px 0;
+}
+
+#bandIcon {
+    margin-left: 0;
+}
+
+#game {
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.icon {
+    height: 150px;
+    width: 150px;
+    float: left;
+}
+.winsConsole {
+    float: left;
+}
+#currentWord {
+    line-height: 2;
+}

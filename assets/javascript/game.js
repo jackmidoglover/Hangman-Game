@@ -71,7 +71,6 @@ else {
         document.getElementById("winsCount").textContent = wins;
         userWon = true;
         console.log(computerChoice);
-        document.getElementById("bandName").textContent= computerChoice;
         document.getElementById("winMessage").textContent = "You won! Click anywhere to play again.";
             }
     //Continues game play

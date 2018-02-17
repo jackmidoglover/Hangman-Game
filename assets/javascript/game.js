@@ -1,76 +1,102 @@
-// Word List
-
+//Global Variables
+var wins = 0;
+var userWon = false;
 var bands = ['arcturus', 'burzum', 'darkthrone', 'emperor', 'enslaved', 'gorgoroth', 'immortal', 'mayhem', 'satyricon', 'ulver'];
+var computerChoice;
+var guesses;
+var lettersGuessed;
+var remaining;
+var answers;
+var failMessage = 
+"<p>Sorry! You have run out of guesses. </p>" + 
+"<p>The word was " + computerChoice + "</p>" +
+"<p> Click anywhere to try again! :D </p>";
 
-// Computer chooses a word
-var computerChoice = bands[Math.floor(Math.random() * bands.length)];
+// Function that pushes values to globals
+function reset() {
+    computerChoice = bands[Math.floor(Math.random() * bands.length)];
+    guesses = 12;
+    remaining = computerChoice.length;
+    lettersGuessed = [];
+// creates blank spaces in answers
+    answers = [];
+    for (var i = 0; i < computerChoice.length; i++) {
+        answers[i] = "_";
+    }
+    console.log(Array.from(computerChoice));
+    document.getElementById("currentWord").textContent = answers.join(" ");
+}
 
-// Global Variables
-var guesses = 12;
-var remaining = computerChoice.length;
-var wordArray = Array.from(computerChoice);
-var lettersGuessed = [];
-var alphabet = ["a", "b", "c", "d","e", "f", "g", "h", "i", "j", "k", "l", "m", "m","n","o", "p", "q","r","s","t","u","v","w","x","y","z"]
-
-
-// Computer creates blank spaces based on the word it chose
-
-var answers = [];
-for (var i = 0; i < computerChoice.length; i++) {
-    answers[i] = "_";
-   }
-   document.getElementById("currentWord").textContent = answers.join(" ");
-console.log(Array.from(computerChoice));
+//initial assignment of values on document load
+reset();
 
 
-//Runs function when key is pressed
+//Primary hangman game function
+var hangman = function(){
 
 document.onkeypress = function(game) {
+    var userGuess = game.key;
 
-// Determines which key user pressed
+//game conditions
+if (userWon == false) {
+if ((answers.includes(userGuess)) && (userWon == false)) {
 
-var userGuess = game.key;
 
-
-
-    //cycles through the index of the arrays computerChoice & lettersGuessed 
+}
+//If the user isn't pressing an already correct answer, then:
+else { 
+//cycle through the index of the arrays computerChoice & answers 
     for (var i = 0; i < computerChoice.length; i++) {
-        //assigns userGuess to answers(_'s) and subtracts from remaining answers 
-        if (computerChoice[i] === userGuess) 
-        {
-            remaining--;
+//Replaces the corresponding _ with userGuess if correct + game scoring mechanism
+        if (computerChoice[i] === userGuess) {
             answers[i] = userGuess;
             document.getElementById("currentWord").textContent = answers.join(" ");
-            console.log(remaining);
             console.log(guesses);
-        }
-
-        // if userGuess is not in computerChoice, this subtracts from guesses
-        // remaining and adds to letters guessed, but does not repeatedly do so
-        // upon the key event
+            remaining--;
+            console.log('reamaining', remaining);
+                }
+            }
+// if userGuess is not in computerChoice, this subtracts from guesses and adds to lettersGuessed
         if ((computerChoice.includes(userGuess) !== true) && (lettersGuessed.includes(userGuess) !== true)) {
             guesses--;
             document.getElementById("guesses").textContent = guesses;
             lettersGuessed.push(userGuess);
             document.getElementById("lettersGuess").textContent = lettersGuessed.join(" "); 
-            break;
+
         }
-        
-       
-            
+    }
+    //Winning condition
+    if (remaining == 0) {
+        wins++;
+        document.getElementById("winsCount").textContent = wins;
+        userWon = true;
+        console.log(computerChoice);
+        document.getElementById("bandName").textContent= computerChoice;
+        document.getElementById("winMessage").textContent = "You won! Click anywhere to play again.";
+            }
+    //Continues game play
+    document.onclick = function(){
+        if (userWon == true) {
+                userWon = false;
+                reset();
+                document.getElementById("winMessage").textContent = ""; 
+                document.getElementById("lettersGuess").textContent = lettersGuessed.join(" ");
+                document.getElementById("guesses").textContent = guesses; 
+                }
+            }
+    // losing condition
+if (guesses == 0)  {
+    document.getElementById("currentWord").innerHTML = failMessage;
+    document.onclick = function(){
+        reset();
+            }
         }
     }
 
-// losing condition
-var failMessage = 
-    "<p>Sorry! You have run out of guesses. </p>" + 
-    "<p>The word was " + computerChoice + "</p>" +
-    "<p> Refresh to try again! :D </p>"
-if (guesses == 0) {
-    document.getElementById("currentWord").innerHTML = failMessage;
 }
-        
-       
-    
-   
+}
+//runs game
+if (userWon!==true) {
+hangman();
+};
 

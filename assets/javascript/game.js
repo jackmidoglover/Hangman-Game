@@ -7,10 +7,6 @@ var guesses;
 var lettersGuessed;
 var remaining;
 var answers;
-var failMessage = 
-"<p>Sorry! You have run out of guesses. </p>" + 
-"<p>The word was " + computerChoice + "</p>" +
-"<p> Click anywhere to try again! :D </p>";
 
 // Function that pushes values to globals
 function reset() {
@@ -94,6 +90,11 @@ if (guesses == 0)  {
 
 }
 }
+var failMessage = 
+"<p>Sorry! You have run out of guesses. </p>" + 
+"<p>The word was " + computerChoice + "</p>" +
+"<p> Click anywhere to try again! :D </p>";
+
 //runs game
 if (userWon!==true) {
 hangman();

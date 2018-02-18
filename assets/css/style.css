@@ -7,7 +7,7 @@ body {
 
 header {
     text-align: center;
-    margin-bottom: -20px;
+    margin-bottom: -35px;
 }
 h1 {
     font-family: XXIIBlackmetalWarrior;
@@ -35,30 +35,28 @@ h3 {
 h4 {
     font-size: 18px;
     font-weight: 1000;
-    padding: 5px 0;
+    padding: 10px 0;
 }
 
 #bandIcon {
     margin-left: 0;
 }
 
-#game {
-    padding-bottom: 30px;
-    text-align: center;
-}
 
 .icon {
-    height: 150px;
-    width: 150px;
+    height: 200px;
+    width: 200px;
     float: left;
 }
 .winsConsole {
-    float: left;
+    text-align: center;
 }
 #currentWord {
     line-height: 2;
 }
 #bandIcon, #game {
    border: 10px solid transparent;
-   border-image: url("../images/skull-border4.png") 33% repeat;
+   border-image: url("../images/skull-border4.png") 29% round;
+   height: 425px;
+   text-align: center;
 }

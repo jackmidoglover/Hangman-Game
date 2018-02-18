@@ -13,6 +13,7 @@ global game variables. hangman() runs the actual game when the user presses a ke
 
 # Who can use this project
 This project is available for anyone to add to or contribute. 
+Some future goals for this project include: setting a conditional so that only when the user presses a key included in the alphabet will the game run, and adding music from the corresponding band to the page when the user guesses correctly!
 
 # Project Goal
 The goal is to create a fun hangman style game with a Norwegian Black Metal theme!

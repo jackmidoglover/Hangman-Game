@@ -60,5 +60,5 @@ h4 {
 }
 #bandIcon, #game {
    border: 10px solid transparent;
-   border-image: url("./assets/images/skull.png") 50 round;
+   border-image: url("../images/skull.png") 25% repeat;
 }

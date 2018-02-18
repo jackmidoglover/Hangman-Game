@@ -58,3 +58,7 @@ h4 {
 #currentWord {
     line-height: 2;
 }
+#bandIcon, #game {
+   border: 10px solid transparent;
+   border-image: url("./assets/images/skull.png") 50 round;
+}
